@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/longest-string-chain/
 
+#include <bits/stdc++.h>
+using namespace std;
 class Solution
 {
 public:

@@ -1,7 +1,9 @@
-1420. Build Array Where You Can Find The Maximum Exactly K Comparisons
-    https : // leetcode.com/problems/build-array-where-you-can-find-the-maximum-exactly-k-comparisons/description/
+// 1420. Build Array Where You Can Find The Maximum Exactly K Comparisons
+//  https : // leetcode.com/problems/build-array-where-you-can-find-the-maximum-exactly-k-comparisons/description/
 
-            class Solution
+#include <bits/stdc++.h>
+using namespace std;
+class Solution
 {
 public:
     int dp[51][51][101];
