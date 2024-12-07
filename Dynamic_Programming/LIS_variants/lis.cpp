@@ -1,7 +1,7 @@
-https : // leetcode.com/problems/longest-increasing-subsequence/description/
+// https : // leetcode.com/problems/longest-increasing-subsequence/description/
 
 #include <bits/stdc++.h>
-        using namespace std;
+using namespace std;
 
 class Solution
 {
@@ -36,20 +36,37 @@ public:
 
         // Tabulation
 
-        int maxlen = 1;
-        vector<int> dp(nums.size(), 1);
+        // int maxlen=1;
+        // vector<int>dp(nums.size(),1);
+
+        // for(int i=0; i<nums.size();i++){
+        //     for(int j=0; j<i; j++){
+        //         if(nums[j]<nums[i]){
+        //            dp[i]=max(dp[i],dp[j]+1);
+        //            maxlen=max(dp[i],maxlen);
+        //         }
+        //     }
+        // }
+        // return maxlen;
+
+        // Patience Sorting
+
+        vector<int> sorted;
 
         for (int i = 0; i < nums.size(); i++)
         {
-            for (int j = 0; j < i; j++)
+
+            auto it = lower_bound(begin(sorted), end(sorted), nums[i]);
+
+            if (it == end(sorted))
             {
-                if (nums[j] < nums[i])
-                {
-                    dp[i] = max(dp[i], dp[j] + 1);
-                    maxlen = max(dp[i], maxlen);
-                }
+                sorted.push_back(nums[i]);
+            }
+            else
+            {
+                *it = nums[i];
             }
         }
-        return maxlen;
+        return sorted.size();
     }
 };
